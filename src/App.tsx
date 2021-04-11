@@ -1,13 +1,16 @@
-import React, {useState} from 'react';
-import Auth from './auth/Auth'
-import MyCourses from './components/MyCourses'
-import Course from './components/Course'
-
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import {BrowserRouter as Router,} from 'react-router-dom';
+
+
+import Home from './site/Home'
+import Auth from './Components/Auth/Auth'
 
 const App: React.FunctionComponent = () => {
   const [sessionToken, setSessionToken] = useState('');
- 
+  const [results, setResults] = useState([])
+  const [role, setRole] = useState('')
+
     const updateToken = (newToken: any) => {
       localStorage.setItem('token', newToken);
       setSessionToken(newToken)
@@ -20,14 +23,15 @@ const App: React.FunctionComponent = () => {
     }
 
     const protectedViews = () => {
-      return(sessionToken === localStorage.getItem('token') && localStorage.getItem('token') != undefined  ? <MyCourses /> : <Course/>)
+      return (sessionToken === localStorage.getItem('token') && localStorage.getItem('token') != undefined ? <Home sessionToken={sessionToken} clearToken={clearToken} updateToken={updateToken}/> : <Auth sessionToken={sessionToken} updateToken={updateToken}/>)
     }
-    
+
   return (
     <div className="App">
       <div>
-        <Auth updateToken={updateToken}/>
+        <Router>
         {protectedViews()}
+        </Router>
       </div>
     </div>
   );

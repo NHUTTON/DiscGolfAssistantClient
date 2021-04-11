@@ -1,9 +1,9 @@
 import { ClickAwayListener } from '@material-ui/core';
-import React, {ChangeEvent, Component, FormEvent} from 'react';
+import React, {Component} from 'react';
 import CourseDisplay from './CourseDisplay'
 
 type Props ={
-  
+  sessionToken: string
 }
 
 type State = {
@@ -14,34 +14,33 @@ export default class Courses extends Component<Props, State> {
     constructor(props: Props) {
         super(props)
             this.state= {
-           results: []
+           results: [],
             }
     } 
 
-    fetchResults = (e: any) => {
+    fetchResults = () => {
         const baseUrl: string = "http://localhost:4000"
         let url: string = `${baseUrl}/course/`
         console.log(url)
-
+  
         fetch(url, {
-            method: 'GET',
-            headers: new Headers ({
-                'Content-Type': 'application/json',
-            })
         }).then((res) => res.json())
         .then((data)=>{
+          this.setState({
+              results: data
+          })
             console.log(data)
-            this.setState({
-                results: data
-            })
         })
+    }
+
+    componentDidMount = () =>{
+        this.fetchResults();
     }
 
     render() {
         return(
             <div>
-                {this.fetchResults}
-                <CourseDisplay results={this.state.results}/>
+                <CourseDisplay fetchResults={this.fetchResults} sessionToken={this.props.sessionToken} results={this.state.results}/>
             </div>
         )
     }

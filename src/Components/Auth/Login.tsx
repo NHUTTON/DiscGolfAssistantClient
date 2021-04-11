@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import Modal from '@material-ui/core/Modal';
+import { Dialog, Box, Grid } from '@material-ui/core';
 
 type Props = {
-updateToken: any,
-exitModal: any,
+updateToken: any
+exitModal: any
 loginModal: boolean
 }
 
@@ -39,7 +39,8 @@ export default class Login extends Component<Props, State> {
               console.log(data)
               this.props.updateToken(data.sessionToken)
           })
-          this.setState({modal:false}) 
+          this.setState({modal:false})
+          this.props.exitModal()
       }
     
 
@@ -53,21 +54,31 @@ export default class Login extends Component<Props, State> {
     render() {
         return(
             <div>
-                <div>
-                <div>
-                  <Modal open={this.state.modal}>
-                    <div>
-                      <h2>Register</h2>
+                <div >
+                <div >
+                  <Dialog open={this.state.modal}>
+                    <div id="dialogStyleAuth">
+                      <h2>Login</h2>
                       <form onSubmit={this.handleSubmit}>
+                        <Box>
                         <label>Username:</label>
                         <input name="username" type="text" onChange={this.handleOpen} value={this.state.username}></input>
-                        <label>Password</label>
+                        </Box>
+                        <Box>
+                        <label>Password: </label>
                         <input name="password" type="password" onChange={this.handleOpen} value={this.state.password}></input>
-                        <button onClick={this.handleSubmit}>Submit</button>
-                        <button onClick={this.props.exitModal}>Close</button>
+                        </Box>
+                        <Box display="flex" mt={2} ml={6}>
+                          <Box ml={1} p={1}>
+                        <button className="authButtons" onClick={this.handleSubmit}>Submit</button>
+                        </Box>
+                        <Box ml={1} p={1}>
+                        <button className="authButtons" onClick={this.props.exitModal}>Close</button>
+                        </Box>
+                        </Box>
                       </form>
                     </div>
-                  </Modal>
+                  </Dialog>
                 </div>
               </div>
             </div>

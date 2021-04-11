@@ -1,0 +1,107 @@
+body {
+    background-color:#071e22;
+}
+
+#courses {
+    background-color:#1D7874;
+}
+
+@font-face {
+    src: url('./assets/RockSalt-Regular.ttf');
+    font-family: rocksalt;
+}
+
+.appName {
+    font-family: rocksalt;
+    color: #EE2E31
+}
+
+.headerCont {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid black;
+    padding-top: 1em;
+    height: 5em;
+}
+
+.authButtons {
+    height: 1.75em;
+    width: 6em;
+    background-color: #1d7874;
+    color: white;
+    border: 2px solid #767676;
+}
+
+#courseName{
+    color: white;
+    font-size: 1.4em;
+}
+
+#courseInfo {
+    color: white;
+}
+
+.courseHeader {
+    text-align: center;
+}
+
+#addButton {
+    background-color: #f4c095;
+    margin-left: 18em;
+}
+
+#edit {
+    background-color: #f4c095;
+    margin-left: 18em;
+}
+
+#delete {
+    background-color: #ee2e31;    
+}
+
+#menuButton {
+    color: white;
+    background-color: #1d7874;
+    margin-bottom: .2em;
+    font-size: .6em;
+    height: 2.4em;
+    border-radius: 0;
+    border: 2px solid #767676;
+}
+
+#courseName {
+    font-family: fantasy;
+    letter-spacing: 2px;
+    font-size: 1.7em;
+}
+
+#courseLocation {
+    font-family: rocksalt;
+}
+
+#dialogStyleAuth {
+    background-color:#071e22;
+    height: 15em;
+    width: 20em;
+    color: white;
+    text-align: center;    
+    position: relative;
+    border:1px solid#ee2e31
+}
+
+#courseDialog {
+    background-color:#071e22;
+    height: 20em;
+    width: 25em;
+    color: white;
+    text-align: center;    
+    position: relative;
+    border:1px solid#ee2e31
+}
+
+#myCourses {
+   color: white;
+   font-family: rocksalt;
+   text-align: right;
+   padding-right: 4em;
+}

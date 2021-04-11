@@ -1,10 +1,13 @@
 import React from 'react';
-import Radium from 'radium'
+import {Box} from '@material-ui/core'
+
 import Login from './Login';
 import Register from './Register'
+import Courses from '../Courses/Courses'
 
 type Props = {
     updateToken: any
+    sessionToken: string
 }
 
 type AuthState = {
@@ -40,18 +43,26 @@ class Auth extends React.Component<Props, AuthState> {
         })
     }
 
-
     render() {
         return(
             <div>
-                <div>
-                <button onClick={this.loginModalHandle}>Login</button>
-                <button onClick={this.registerModalHandle}>Register</button>
+                <div className="headerCont">
+                <img src="https://i.imgur.com/0jje6Qx.png" alt="no image" width={70} height={70} />
+                <br/>
+                  <h2 className="appName">Disc Golf Assistant</h2>
+                    <Box  style={{marginLeft: "900px", marginTop:"20px"}}>  
+                        <button className="authButtons" onClick={this.loginModalHandle}>Login</button>
+                        <br/>
+                        <button className="authButtons" onClick={this.registerModalHandle}>Register</button>
+                    </Box>
                 </div>
+                <div >
                 {this.state.loginModal ? <Login updateToken={this.props.updateToken} exitModal={this.exitModal} loginModal={this.state.loginModal}/> : null} {this.state.registerModal ? <Register updateToken={this.props.updateToken} exitModal={this.exitModal} registerModal={this.state.registerModal} /> : null}
+                </div>
+                <Courses sessionToken={this.props.sessionToken} />
             </div>
         )
     }
 } 
 
-export default Radium(Auth);
+export default Auth;

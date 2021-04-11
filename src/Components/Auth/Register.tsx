@@ -1,5 +1,5 @@
 import React, {Component, useState} from 'react';
-import Modal from '@material-ui/core/Modal';
+import { Dialog, Box } from '@material-ui/core';
 // import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
 
@@ -75,23 +75,37 @@ export default class Register extends Component<Props, State> {
         return(
             <div>
                 <div>
-                  <Modal open={this.state.modal}>
-                    <div>
+                  <Dialog open={this.state.modal}>
+                    <div  id="dialogStyleAuth">
                       <h2>Register</h2>
                       <form onSubmit={this.handleSubmit}>
-                        <label>Username:</label>
+                        <Box>
+                        <label>Username: </label>
                         <input name="username" type="text" onChange={this.handleOpen} value={this.state.username}></input>
-                        <label>Password</label>
+                        </Box>
+                        <Box>
+                        <label>Password: </label>
                         <input name="password" type="password" onChange={this.handleOpen} value={this.state.password}></input>
-                        <label>First Name</label>
+                        </Box>
+                        <Box>
+                        <label>First Name: </label>
                         <input name="firstname" type="text" onChange={this.handleOpen} value={this.state.firstname}></input>
-                        <label>Last Name</label>
+                        </Box>
+                        <Box>
+                        <label>Last Name: </label>
                         <input name="lastname" type="text" onChange={this.handleOpen} value={this.state.lastname}></input>
+                        </Box>
+                        <Box display="flex" mt={2} ml={9}>
+                        <Box ml={1} p={1}>
                         <button onClick={this.handleSubmit}>Submit</button>
+                        </Box>
+                        <Box ml={1} p={1}>
                         <button onClick={this.props.exitModal}>Close</button>
+                        </Box>
+                        </Box>
                       </form>
                     </div>
-                  </Modal>
+                  </Dialog>
                 </div>
               </div>
         )
