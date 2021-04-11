@@ -6,6 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography';
 
 import MyCourseEdit from './MyCourseEdit'
@@ -33,7 +34,7 @@ const MyCourseDisplay = (props: Props) => {
       <div>
         <h1 id="myCourses">My Courses</h1>
         {props.results.map((course:any) => (
-        <div>
+          <div>
           <Card className={classes.root}>
       <CardActionArea>
       <Typography style= {{textAlign: "center", fontFamily:"rocksalt", fontSize:"20px"}} gutterBottom variant="h5" component="h2">
