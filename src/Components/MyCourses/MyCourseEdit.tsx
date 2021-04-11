@@ -1,6 +1,6 @@
 import { Dialog, Box, Button } from '@material-ui/core';
 import React, {Component} from 'react';
-
+import APIURL from '../../helpers/environment'
 
 type Props = {
     results: any
@@ -21,7 +21,7 @@ class MyCourseEdit extends Component <Props, State> {
     };
 
     myCourseUpdate=(e: any) => {
-        fetch(`http://localhost:4000/mycourses/change/${this.props.results.id}`, {
+        fetch(`${APIURL}/mycourses/change/${this.props.results.id}`, {
             method: 'PUT',
             body: JSON.stringify({mycourse: {
              review: this.state.review
@@ -37,7 +37,7 @@ class MyCourseEdit extends Component <Props, State> {
     } 
 
     myCourseDelete = () => {
-        fetch(`http://localhost:4000/mycourses/delete/${this.props.results.id}`, {
+        fetch(`${APIURL}/mycourses/delete/${this.props.results.id}`, {
         method: 'DELETE',
         headers: new Headers({
             'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
 import React, {ChangeEvent, Component, FormEvent} from 'react';
 import MyCourseDisplay from './MyCourseDisplay'
+import APIURL from '../../helpers/environment'
 
 type Props ={
 sessionToken: string
@@ -18,7 +19,7 @@ export default class MyCourses extends Component<Props, State> {
     } 
         
         fetchMyCourses = () => {
-            fetch("http://localhost:4000/mycourses/mine", {
+            fetch(`${APIURL}/mycourses/mine`, {
                 method: "GET",
                 headers: new Headers({
                 "Content-Type": "application/json",

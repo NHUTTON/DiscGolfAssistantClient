@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Dialog, Box, Grid } from '@material-ui/core';
+import APIURL from '../../helpers/environment'
 
 type Props = {
 updateToken: any
@@ -25,7 +26,7 @@ export default class Login extends Component<Props, State> {
 
     handleSubmit = (event: any) => {
         event.preventDefault();
-          fetch('http://localhost:4000/user/login', {
+          fetch(`${APIURL}/user/login`, {
               method: "POST",
               body: JSON.stringify({user: {
                     username: this.state.username, 

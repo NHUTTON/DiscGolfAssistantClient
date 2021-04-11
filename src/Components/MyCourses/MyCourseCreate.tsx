@@ -1,5 +1,6 @@
 import React, {useState, Component} from 'react';
 import { Dialog, Box } from '@material-ui/core';
+import APIURL from '../../helpers/environment'
 
 type Props = {
     results: any
@@ -38,7 +39,7 @@ export default class MyCourseCreate extends Component <Props, State> {
     }
 
     handleSubmit = () => {
-        fetch('http://localhost:4000/mycourses/create', {
+        fetch(`${APIURL}/mycourses/create`, {
                 method: 'POST',
                 body: JSON.stringify({mycourse: {
                     review: this.state.review,

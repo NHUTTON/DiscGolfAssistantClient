@@ -1,5 +1,6 @@
 import React, {useState, Component} from 'react';
 import { Dialog, Box, Button } from '@material-ui/core';
+import APIURL from '../../helpers/environment'
 
 type Props = {
     updateToken: any,
@@ -37,7 +38,7 @@ class CourseCreate extends Component <Props, State> {
     handleSubmit = (e: any) => {
         e.preventDefault();
 
-        fetch('http://localhost:4000/course/create', {
+        fetch(`${APIURL}/course/create`, {
                 method: 'POST',
                 body: JSON.stringify({course: {
                     image: this.state.image,

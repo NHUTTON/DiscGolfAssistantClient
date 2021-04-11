@@ -1,6 +1,7 @@
 import { ClickAwayListener } from '@material-ui/core';
 import React, {Component} from 'react';
 import CourseDisplay from './CourseDisplay'
+import APIURL from '../../helpers/environment'
 
 type Props ={
   sessionToken: string
@@ -19,8 +20,7 @@ export default class Courses extends Component<Props, State> {
     } 
 
     fetchResults = () => {
-        const baseUrl: string = "http://localhost:4000"
-        let url: string = `${baseUrl}/course/`
+        let url: string = `${APIURL}/course/`
         console.log(url)
   
         fetch(url, {

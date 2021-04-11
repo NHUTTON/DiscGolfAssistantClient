@@ -1,5 +1,6 @@
 import React, {Component, useState} from 'react';
 import { Dialog, Box } from '@material-ui/core';
+import APIURL from '../../helpers/environment'
 // import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
 
@@ -42,7 +43,7 @@ export default class Register extends Component<Props, State> {
       alert("Username must be longer than 4 characters")
     } else if (this.regEx.test(this.state.username)) {
 
-      fetch('http://localhost:4000/user/register', {
+      fetch(`${APIURL}/user/register`, {
           method: "POST",
           body: JSON.stringify({user: {
                 firstname: this.state.firstname, 
