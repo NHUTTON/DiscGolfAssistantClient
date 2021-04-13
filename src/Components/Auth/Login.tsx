@@ -47,7 +47,6 @@ export default class Login extends Component<Props, State> {
               console.log(data)
               this.props.updateToken(data)
           })
-          this.setState({modal:false})
         }
       }
     
