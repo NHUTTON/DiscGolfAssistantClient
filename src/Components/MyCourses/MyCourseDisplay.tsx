@@ -35,7 +35,11 @@ const MyCourseDisplay = (props: Props) => {
         <br/>
         <br/>
         <br/>
+        <div style={{whiteSpace: "nowrap"}}>
         <h1 id="myCourses">My Courses</h1>
+        </div>
+        <br/>
+        <br/>
         {props.results.map((course:any) => (
           <div>
           <Card id="cardDisplay" className={classes.root}>
