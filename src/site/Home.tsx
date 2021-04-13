@@ -12,7 +12,6 @@ type Props = {
   console.log(props)
       return(
         <div>
-            {/* My course Display */}
             <Navbar clearToken={props.clearToken} sessionToken={props.sessionToken} updateToken={props.updateToken}/>
         </div>
       )

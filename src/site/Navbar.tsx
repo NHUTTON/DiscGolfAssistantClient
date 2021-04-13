@@ -1,5 +1,5 @@
 import React from 'react';
-import {MenuItem, Box, Button, Menu} from '@material-ui/core';
+import {MenuItem, Box, Button, Menu, Typography} from '@material-ui/core';
 import {
   Route,
   Link,
@@ -65,9 +65,9 @@ type State = {
 
     render() {
       return (
-        <div>
-          <div>
-            <div className="headerCont">
+        <div >
+          <div id="navCont">
+            <Box className="headerCont">
               <img
                 src="https://i.imgur.com/0jje6Qx.png"
                 alt="no image"
@@ -75,7 +75,7 @@ type State = {
                 height={70}
               />
               <br />
-              <h2 className="appName">Disc Golf Assistant</h2>
+              <Typography style={{fontFamily: "rocksalt", color: "#ee2e31", fontSize:"1.5em", whiteSpace: "nowrap", paddingTop: "1.4em"}}>Disc Golf Assistant</Typography>
               <Box style={{ marginLeft: "900px", marginTop: "20px" }}>
                 <Box>
                   <Button
@@ -120,7 +120,7 @@ type State = {
                   courseCreateModal={this.state.courseCreateModal}
                 />
                : null}
-            </div>
+            </Box>
             <Switch>
               <Route exact path= '/'>{localStorage.token ? <Redirect to="/home"/> : null}</Route>
             <Route exact path="/home"><Courses sessionToken={this.props.sessionToken} /></Route>

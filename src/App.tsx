@@ -8,6 +8,7 @@ import Auth from './Components/Auth/Auth'
 
 const App: React.FunctionComponent = () => {
   const [sessionToken, setSessionToken] = useState('');
+  const [width, setWindowWidth] = useState(0)
 
   useEffect(() => {
     if (localStorage.getItem('token')) {

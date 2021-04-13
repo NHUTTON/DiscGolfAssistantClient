@@ -6,19 +6,17 @@ body {
     background-color:#1D7874;
 }
 
+#navCont {
+    background-size: 80%;
+}
+
 @font-face {
     src: url('./assets/RockSalt-Regular.ttf');
     font-family: rocksalt;
 }
 
-.appName {
-    font-family: rocksalt;
-    color: #EE2E31
-}
-
 .headerCont {
     position: fixed;
-    background-size: 90%;
     display: flex;
     justify-content: flex-start;
     border-bottom: 1px solid black;

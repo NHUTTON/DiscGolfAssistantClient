@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box} from '@material-ui/core'
+import {Box, Typography} from '@material-ui/core'
 
 import Login from './Login';
 import Register from './Register'
@@ -51,7 +51,7 @@ class Auth extends React.Component<Props, AuthState> {
                 <div className="headerCont">
                 <img src="https://i.imgur.com/0jje6Qx.png" alt="no image" width={70} height={70} />
                 <br/>
-                  <h2 className="appName">Disc Golf Assistant</h2>
+                <Typography style={{fontFamily: "rocksalt", color: "#ee2e31", fontSize:"1.5em", whiteSpace: "nowrap", paddingTop: "1.4em"}}>Disc Golf Assistant</Typography>
                     <Box  style={{marginLeft: "900px", marginTop:"20px"}}>  
                         <button className="authButtons" onClick={this.loginModalHandle}>Login</button>
                         <br/>
