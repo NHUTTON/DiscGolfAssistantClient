@@ -68,7 +68,7 @@ handleInput = (e:any) => {
     render() {
         return(
             <div>
-                  <textarea onChange={this.handleInput} name="review" value={this.state.review}></textarea>
+                  <textarea style={{minWidth: "323px", minHeight: "100px", maxWidth:"323px"}} onChange={this.handleInput} name="review" value={this.state.review}></textarea>
                   <Box>
                 <Button id="editMyCourseButton" size="small" onClick={this.myCourseUpdate}> Update Comment</Button>
                 <Button id="deleteMyCourseButton" size="small" onClick={this.myCourseDelete}>Remove Course</Button>

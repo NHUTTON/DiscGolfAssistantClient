@@ -45,7 +45,7 @@ export default class MyCourseCreate extends Component <Props, State> {
         }
 
         componentDidMount = () =>{
-          // console.log(this.props.results.id)
+          
         }
         
     handleInput = (e:any) => {
@@ -75,12 +75,12 @@ export default class MyCourseCreate extends Component <Props, State> {
                 <div>
                   <Dialog open={this.state.modal}>
                     <div  id="courseDialog">
-                      <h2>Add a Review/Comment:</h2>
+                      <h2>Add a Review/Comment for:</h2>
                       <form>
+                        <h2 style={{color:"red", fontFamily: "rocksalt", fontSize: "18px"}}>{this.props.results.name.replace(/_/g,' ')}</h2>
                         <label>Review: </label>
                           <Box>
-                        <textarea style={{height: "7em", width: "20em"}} name="review" onChange={this.handleInput} value={this.state.review}></textarea>
-                        <input defaultValue={this.props.results.name.replace(/_/g,' ')} ></input>
+                        <textarea style={{minHeight: "7em", maxHeight: "7em", minWidth: "20em", maxWidth: "20em"}} name="review" onChange={this.handleInput} value={this.state.review}></textarea>
                         </Box>
                         </form>
                         <Box display="flex" mt={2} ml={15}>

@@ -58,6 +58,7 @@ class CourseCreate extends Component <Props, State> {
             .then((data) => {
                 console.log(data)
                 this.setState({modal:false});
+                window.location.reload(false)
             })
         }
 
