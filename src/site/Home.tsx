@@ -1,20 +1,19 @@
 import React from 'react';
 import Navbar from './Navbar'
-import Courses from '../Components/Courses/Courses'
+import {IData} from "../Components/Interfaces"
 
 type Props = {
-    updateToken: any
+    updateToken: (newToken: IData) => void,
     sessionToken: string
-    clearToken: any
+    clearToken: () => void,
   }
   
   const Home = (props: Props) => {
-  
+  console.log(props)
       return(
         <div>
             {/* My course Display */}
             <Navbar clearToken={props.clearToken} sessionToken={props.sessionToken} updateToken={props.updateToken}/>
-            <Courses sessionToken={props.sessionToken} />
         </div>
       )
     }

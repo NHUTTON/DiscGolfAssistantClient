@@ -1,12 +1,12 @@
 import React, {Component, useState} from 'react';
 import { Dialog, Box } from '@material-ui/core';
-import APIURL from '../../helpers/environment'
-// import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
+import APIURL from '../../helpers/environment'
+import {IData} from "../Interfaces"
 
 type Props = {
-  updateToken: any,
-  exitModal: any,
+  updateToken: (newToken: IData) => void,
+  exitModal: () => void
   registerModal: boolean
 }
 
@@ -34,7 +34,7 @@ export default class Register extends Component<Props, State> {
   regEx = new RegExp (/[a-z]{1,10}[0-9]{1,10}/i)
 
 
-  handleSubmit = (event: any) => {
+  handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     
     if (this.state.password.length < 5) {
@@ -57,7 +57,8 @@ export default class Register extends Component<Props, State> {
       }).then(res => res.json()
       ).then(data => {
           console.log(data)
-          this.props.updateToken(data.sessionToken)
+          this.props.updateToken(data)
+          alert(`Thanks for signing up, ${data.user.firstname}!`)
       })
       this.setState({modal:false});
   } else {
@@ -65,7 +66,7 @@ export default class Register extends Component<Props, State> {
   }
 }
 
-    handleOpen = (e:any) => {
+    handleOpen = (e: React.ChangeEvent<HTMLInputElement>) => {
       this.setState({
         ...this.state,
         [e.target.name]: e.target.value

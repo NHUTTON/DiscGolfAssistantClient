@@ -1,12 +1,13 @@
 import React, {useState, Component} from 'react';
 import { Dialog, Box, Button } from '@material-ui/core';
 import APIURL from '../../helpers/environment'
+import {IData} from "../Interfaces"
 
 type Props = {
-    updateToken: any,
-    exitModal: any,
-    courseCreateModal: any
+    updateToken: (newToken: IData) => void,
     sessionToken: string
+    exitModal: () => void,
+    courseCreateModal: boolean
 }
 
 type State = {
@@ -31,7 +32,7 @@ class CourseCreate extends Component <Props, State> {
             holes: "", 
             distance: 0, 
             tee: "",
-            modal: props.courseCreateModal
+            modal: true
         }
     };
 

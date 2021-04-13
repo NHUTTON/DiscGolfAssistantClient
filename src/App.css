@@ -17,11 +17,16 @@ body {
 }
 
 .headerCont {
+    position: fixed;
+    background-size: 90%;
     display: flex;
     justify-content: flex-start;
     border-bottom: 1px solid black;
     padding-top: 1em;
     height: 5em;
+    background-color: #071e22;
+    z-index: 10;
+    width: 100%
 }
 
 .authButtons {
@@ -45,18 +50,24 @@ body {
     text-align: center;
 }
 
+
 #addButton {
     background-color: #f4c095;
     margin-left: 18em;
+    width: 18em;
+    border: 2px solid black
 }
 
 #edit {
     background-color: #f4c095;
     margin-left: 18em;
+    border: 2px solid black
 }
 
 #delete {
-    background-color: #ee2e31;    
+    background-color: #ee2e31;
+    margin-left: 1.8em; 
+    border: 2px solid black
 }
 
 #menuButton {
@@ -64,7 +75,7 @@ body {
     background-color: #1d7874;
     margin-bottom: .2em;
     font-size: .6em;
-    height: 2.4em;
+    height: 2.5em;
     border-radius: 0;
     border: 2px solid #767676;
 }
@@ -104,4 +115,29 @@ body {
    font-family: rocksalt;
    text-align: right;
    padding-right: 4em;
+}
+
+#cardDisplay{
+    background-color: #1d7874;
+    border: 2px solid white;
+}
+
+#editMyCourseButton {
+    background-color: #f4c095;
+    width: 11em;
+    text-align: center;
+    margin-left:  1em;
+    border: 2px solid black
+}
+
+#deleteMyCourseButton {
+    color:#ee2e31;
+    background-color: black;
+    width: 11em;
+    margin-left: 1em;
+    border: 2px solid #ee2e31
+}
+
+#myInfo {
+    color: white
 }

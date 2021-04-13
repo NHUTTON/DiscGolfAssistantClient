@@ -1,11 +1,13 @@
-import { Dialog, Box } from '@material-ui/core';
+import { Dialog, Box, Button } from '@material-ui/core';
 import React, {Component} from 'react';
+
 import APIURL from '../../helpers/environment'
+import {ICourse} from "../Interfaces"
 
 type Props = {
-    results: any
+    results: ICourse
     sessionToken: string
-    fetchResults: any
+    fetchResults: () => void
 }
 
 type State = {
@@ -150,8 +152,9 @@ componentDidUpdate(prevState: any ) {
                     </div> 
                   </Dialog>
                 </div>
-                <button id="edit" onClick={this.courseEditHandle}>Edit</button>
-                <button id="delete" onClick={this.courseDelete}>Delete Course</button>
+                <br/>
+                <Button size="small"  id="edit" onClick={this.courseEditHandle}>Edit Info</Button>
+                <Button size="small"  id="delete" onClick={this.courseDelete}>Delete Course</Button>
             </div>
         )
     }

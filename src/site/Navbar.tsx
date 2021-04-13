@@ -8,10 +8,13 @@ import {
 
 import CourseCreate from '../Components/Courses/CourseCreate'
 import MyCourses from '../Components/MyCourses/MyCourses'
+import Courses from '../Components/Courses/Courses'
+import {IData} from "../Components/Interfaces"
+import { NonNullChain } from 'typescript';
 
 type Props = {
-  updateToken: any
-  clearToken: any
+  updateToken: (newToken: IData) => void,
+  clearToken: () => void,
   sessionToken: string
 }
   
@@ -21,12 +24,13 @@ type State = {
 }
 
   class Navbar extends React.Component<Props, State> {
-    constructor(props: any) {
+    constructor(props: Props) {
       super(props);
       this.state = {
         courseCreateModal: false,
         anchorEl: null,
       };
+      console.log(props)
     }
 
     courseCreateHandle = () => {
@@ -35,7 +39,7 @@ type State = {
       });
     };
 
-    exitCourseModal = (e: any) => {
+    exitCourseModal = () => {
       this.setState({
         courseCreateModal: false,
       });
@@ -54,8 +58,8 @@ type State = {
     };
 
     createCourse = () => {
-      this.handleClose();
       this.courseCreateHandle();
+      this.handleClose();
     };
 
     render() {
@@ -83,18 +87,19 @@ type State = {
                   </Button>
                   <Menu
                     id="simple-menu"
+                    anchorOrigin={{ vertical: "top", horizontal: "right" }}
                     anchorEl={this.state.anchorEl}
-                    keepMounted
                     open={Boolean(this.state.anchorEl)}
                     onClose={this.handleClose}
                   >
+                    {localStorage.admin === "true" ?
                     <MenuItem onClick={this.createCourse}>
                       Create a Course
-                    </MenuItem>
+                    </MenuItem>: null}
+                    <MenuItem onClick={this.handleClose}><Link to="/home">Home</Link></MenuItem>
                     <MenuItem onClick={this.handleClose}>
                       <Link to="/mycourses">My Courses</Link>
                     </MenuItem>
-                    <MenuItem onClick={this.handleClose}>Users</MenuItem>
                   </Menu>
                 </Box>
                 <Box>
@@ -106,16 +111,17 @@ type State = {
                   </button>
                 </Box>
               </Box>
-              {this.state.courseCreateModal ? (
+              {this.state.courseCreateModal ? 
                 <CourseCreate
                   sessionToken={this.props.sessionToken}
                   updateToken={this.props.updateToken}
                   exitModal={this.exitCourseModal}
                   courseCreateModal={this.state.courseCreateModal}
                 />
-              ) : null}
+               : null}
             </div>
             <Switch>
+            <Route exact path="/home"><Courses sessionToken={this.props.sessionToken} /></Route>
               <Route exact path="/mycourses">
                 <MyCourses sessionToken={this.props.sessionToken} />
               </Route>

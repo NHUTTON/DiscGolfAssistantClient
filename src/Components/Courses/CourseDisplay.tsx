@@ -7,12 +7,12 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 
 import CourseEdit from './CourseEdit'
 import MyCourseCreate from '../MyCourses/MyCourseCreate'
-
+import {ICourse} from "../Interfaces"
 
 type Props = {
   results: any
   sessionToken: string
-  fetchResults: any
+  fetchResults: () => void
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -45,8 +45,13 @@ export default function CourseDisplay(props:Props) {
   return (
     <div >
       <br/>
-    <Grid item xs={8}>
-    {props.results.map((course: any) => (
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+    <Grid  item xs={8}>
+    {props.results.map((course: ICourse) => (
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <Grid id="courses" container spacing={4}>
@@ -79,8 +84,8 @@ export default function CourseDisplay(props:Props) {
                 </Typography>
               </Grid>
               <Grid item>
-              <MyCourseCreate fetchResults={props.fetchResults}  sessionToken={props.sessionToken} results={course} />
-              <CourseEdit fetchResults={props.fetchResults} sessionToken={props.sessionToken} results={course} />
+                { localStorage.token == props.sessionToken ? <MyCourseCreate fetchResults={props.fetchResults}  sessionToken={props.sessionToken} results={course} /> : null}
+              { localStorage.admin == "true" ? <CourseEdit fetchResults={props.fetchResults} sessionToken={props.sessionToken} results={course} /> : null}
               </Grid>
             </Grid>
           </Grid>

@@ -32,7 +32,7 @@ class MyCourseEdit extends Component <Props, State> {
             })
         }).then((res) => {
             console.log(res);
-            this.props.fetchMyCourses();
+            alert("Course updated!")
         })
     } 
 
@@ -46,6 +46,7 @@ class MyCourseEdit extends Component <Props, State> {
     }).then(res => {
         console.log(res)
         this.props.fetchMyCourses();
+        alert("Course removed from you list!")
     })
 }
 
@@ -69,8 +70,8 @@ handleInput = (e:any) => {
             <div>
                   <textarea onChange={this.handleInput} name="review" value={this.state.review}></textarea>
                   <Box>
-                <Button size="small" color="primary" onClick={this.myCourseUpdate}> Update Comment</Button>
-                <Button size="small" color="primary" onClick={this.myCourseDelete}>Remove this Course</Button>
+                <Button id="editMyCourseButton" size="small" onClick={this.myCourseUpdate}> Update Comment</Button>
+                <Button id="deleteMyCourseButton" size="small" onClick={this.myCourseDelete}>Remove Course</Button>
                   </Box>
             </div>
         )

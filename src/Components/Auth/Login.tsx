@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import { Dialog, Box, Grid } from '@material-ui/core';
+
 import APIURL from '../../helpers/environment'
+import {IData} from "../Interfaces"
 
 type Props = {
-updateToken: any
-exitModal: any
+updateToken: (newToken: IData) => void,
+exitModal: () => void
 loginModal: boolean
+clearToken: () => void
 }
 
 type State = {
@@ -24,8 +27,12 @@ export default class Login extends Component<Props, State> {
         }
     };
 
-    handleSubmit = (event: any) => {
+    handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
+        if (this.state.password ==="" || this.state.username.length < 5) {
+          alert("Incorrect username or password")
+          window.location.reload(true)
+        } else {
           fetch(`${APIURL}/user/login`, {
               method: "POST",
               body: JSON.stringify({user: {
@@ -38,14 +45,15 @@ export default class Login extends Component<Props, State> {
           }).then(res => res.json()
           ).then(data => {
               console.log(data)
-              this.props.updateToken(data.sessionToken)
+              this.props.updateToken(data)
+              alert(`Welcome back, ${data.user.firstname}!`)
           })
           this.setState({modal:false})
-          this.props.exitModal()
+        }
       }
     
 
-    handleOpen = (e:any) => {
+    handleOpen = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
           ...this.state,
           [e.target.name]: e.target.value

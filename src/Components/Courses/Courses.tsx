@@ -1,14 +1,16 @@
 import { ClickAwayListener } from '@material-ui/core';
 import React, {Component} from 'react';
+
 import CourseDisplay from './CourseDisplay'
 import APIURL from '../../helpers/environment'
+import {ICourse} from "../Interfaces"
 
 type Props ={
   sessionToken: string
 }
 
 type State = {
-   results: []
+   results: ICourse[]
 }
 
 export default class Courses extends Component<Props, State> {

@@ -38,7 +38,6 @@ export default class MyCourses extends Component<Props, State> {
         this.fetchMyCourses();
     }
 
-
     render() {
         return(
             <div>

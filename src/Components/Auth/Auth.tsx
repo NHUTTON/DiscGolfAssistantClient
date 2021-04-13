@@ -4,10 +4,12 @@ import {Box} from '@material-ui/core'
 import Login from './Login';
 import Register from './Register'
 import Courses from '../Courses/Courses'
+import {IData} from "../Interfaces"
 
 type Props = {
-    updateToken: any
+    updateToken: (newToken: IData) => void,
     sessionToken: string
+    clearToken: () => void
 }
 
 type AuthState = {
@@ -36,7 +38,7 @@ class Auth extends React.Component<Props, AuthState> {
         })
     }
 
-    exitModal = (e: any) => {
+    exitModal = () => {
         this.setState({
             registerModal: false,
             loginModal: false
@@ -57,7 +59,7 @@ class Auth extends React.Component<Props, AuthState> {
                     </Box>
                 </div>
                 <div >
-                {this.state.loginModal ? <Login updateToken={this.props.updateToken} exitModal={this.exitModal} loginModal={this.state.loginModal}/> : null} {this.state.registerModal ? <Register updateToken={this.props.updateToken} exitModal={this.exitModal} registerModal={this.state.registerModal} /> : null}
+                {this.state.loginModal ? <Login clearToken={this.props.clearToken}updateToken={this.props.updateToken} exitModal={this.exitModal} loginModal={this.state.loginModal}/> : null} {this.state.registerModal ? <Register updateToken={this.props.updateToken} exitModal={this.exitModal} registerModal={this.state.registerModal} /> : null}
                 </div>
                 <Courses sessionToken={this.props.sessionToken} />
             </div>

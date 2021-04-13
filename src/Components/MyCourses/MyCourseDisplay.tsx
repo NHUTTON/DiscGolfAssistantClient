@@ -5,8 +5,6 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography';
 
 import MyCourseEdit from './MyCourseEdit'
@@ -17,13 +15,14 @@ const useStyles = makeStyles({
   },
   media: {
     height: 140,
-  },
+    color: 'white'
+ },
 });
 
 type Props ={
   sessionToken: string
-  results: []
-  fetchMyCourses: any
+  results: any
+  fetchMyCourses: () => void
 }
 
 const MyCourseDisplay = (props: Props) => {
@@ -32,22 +31,28 @@ const MyCourseDisplay = (props: Props) => {
   
     return(
       <div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <h1 id="myCourses">My Courses</h1>
         {props.results.map((course:any) => (
           <div>
-          <Card className={classes.root}>
+          <Card id="cardDisplay" className={classes.root}>
       <CardActionArea>
-      <Typography style= {{textAlign: "center", fontFamily:"rocksalt", fontSize:"20px"}} gutterBottom variant="h5" component="h2">
-          {course.name.replace(/_/g,' ')}
+        <br/>
+      <Typography style= {{textAlign: "center", fontFamily:"rocksalt", fontSize:"20px", color: "white"}} gutterBottom variant="h5" component="h2">
+          {course.course.name.replace(/_/g,' ')}
           </Typography>
+          <br/>
         <CardMedia
           className={classes.media}
-          image= {course.image}
+          image= {course.course.image}
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography variant="body2" component="p">
-     Tees: {course.tee} | Holes: {course.holes} | Distance: {course.distance} ft.
+          <Typography id="myInfo" variant="body2" component="p">
+     Tees: {course.course.tee} | Holes: {course.course.holes} | Distance: {course.course.distance} ft.
           </Typography>
         </CardContent>
       </CardActionArea>
