@@ -3,7 +3,8 @@ import {MenuItem, Box, Button, Menu} from '@material-ui/core';
 import {
   Route,
   Link,
-  Switch
+  Switch,
+  Redirect
 } from 'react-router-dom'
 
 import CourseCreate from '../Components/Courses/CourseCreate'
@@ -121,6 +122,7 @@ type State = {
                : null}
             </div>
             <Switch>
+              <Route exact path= '/'>{localStorage.token ? <Redirect to="/home"/> : null}</Route>
             <Route exact path="/home"><Courses sessionToken={this.props.sessionToken} /></Route>
               <Route exact path="/mycourses">
                 <MyCourses sessionToken={this.props.sessionToken} />

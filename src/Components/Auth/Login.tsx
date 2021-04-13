@@ -27,7 +27,7 @@ export default class Login extends Component<Props, State> {
         }
     };
 
-    handleSubmit = (event: React.FormEvent) => {
+    handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         if (this.state.password ==="" || this.state.username.length < 5) {
           alert("Incorrect username or password")
@@ -46,7 +46,6 @@ export default class Login extends Component<Props, State> {
           ).then(data => {
               console.log(data)
               this.props.updateToken(data)
-              alert(`Welcome back, ${data.user.firstname}!`)
           })
           this.setState({modal:false})
         }

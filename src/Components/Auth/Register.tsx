@@ -58,11 +58,10 @@ export default class Register extends Component<Props, State> {
       ).then(data => {
           console.log(data)
           this.props.updateToken(data)
-          alert(`Thanks for signing up, ${data.user.firstname}!`)
       })
       this.setState({modal:false});
   } else {
-    alert('Username must contain at least one number')
+    alert("username must include at least one number.")
   }
 }
 

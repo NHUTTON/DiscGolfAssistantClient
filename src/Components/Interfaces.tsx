@@ -1,5 +1,6 @@
 export interface IData {
     user: IUser
+    message: string
     sessionToken: string
 }
 
