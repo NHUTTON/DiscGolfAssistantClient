@@ -1,14 +1,22 @@
+
 <h1 align="center">Disc Golf Assistant</h1>
 <hr/>
 
 Hello and welcome to the Disc Golf Assistant Application! This app acts as a personal caddy book/journal for disc golfers. A user can sign up with an account (username must include at least one number and 5 characters), create a personalized list of courses from a hosted database and add a single comment for each course, with no text limit. Idealy you could have a descriptive comment for each hole of the course and update it throughout your round or whenver you feel like. This appliaction is deployed to Heroku where it has a corresponding server that holds over 20 courses in the state of Indiana. At (https://github.com/NHUTTON/DiscGolfAssistantServer), you can check out the coresponding github server link to create your own database. The current deployed version in heroku is at (https://nwh-disc-golf-assistant-client.herokuapp.com/).
 
 The Home page for the client will show the list of courses that are listed in the database. From that page you will have the ability to Login and/or create and account. 
+![home](https://user-images.githubusercontent.com/77295693/114647235-bf224680-9caa-11eb-8ab3-705c558388a2.png)
+
+
 
 Once you are logged in, you will now have the ability to "Add a course to your list"! By clicking this button, a modal will open and you will be able to add a review or you can leave the field empty. Once submitted, you will now be able to view that course in your "My Courses".
 
+![loggedin](https://user-images.githubusercontent.com/77295693/114647273-cf3a2600-9caa-11eb-8c8c-350f4345e36b.png)
+
+
 You will also see that where the Login and Register buttons were has updated to an "Open Menu" button and Logout button. The "Logout" button will clear your session token from the local storage and refresh the page. The "Open Menu" button will create a drop down giving you two options to navigate to, "Home" or "My Courses".  
 
+![myCourses](https://user-images.githubusercontent.com/77295693/114647287-d6613400-9caa-11eb-8a44-bd0312a00aad.png)
 
 
 Run: "npm install"  in your terminal to install the dependencies needed for this react application.
