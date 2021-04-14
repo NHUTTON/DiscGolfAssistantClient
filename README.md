@@ -20,6 +20,7 @@ You will also see that where the Login and Register buttons were has updated to 
 
 <hr/>
 <h3 align="center">If you have any general questions or want to contact me please email me at nickolashutton@gmail.com.<h3>
+<hr/>
 
 
 Run: "npm install"  in your terminal to install the dependencies needed for this react application.
