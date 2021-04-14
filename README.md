@@ -18,6 +18,9 @@ You will also see that where the Login and Register buttons were has updated to 
 
 ![myCourses](https://user-images.githubusercontent.com/77295693/114647287-d6613400-9caa-11eb-8a44-bd0312a00aad.png)
 
+<hr/>
+<h3 align="center">If you have any general questions or want to contact me please email me at nickolashutton@gmail.com.<h3>
+
 
 Run: "npm install"  in your terminal to install the dependencies needed for this react application.
 
