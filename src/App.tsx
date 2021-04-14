@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import {BrowserRouter as Router,} from 'react-router-dom';
-import {IData} from './Components/Interfaces'
+import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 
+import {IData} from './Components/Interfaces'
 import Home from './site/Home'
 import Auth from './Components/Auth/Auth'
 
